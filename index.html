@@ -9,27 +9,73 @@
       margin: 40px;
       background-color: #0d1117;
       color: #e6edf3;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.light-theme {
+      background-color: #ffffff;
+      color: #1a1a1a;
     }
     a {
       color: #58a6ff;
       text-decoration: none;
     }
+    body.light-theme a {
+      color: #0969da;
+    }
     .container {
       max-width: 800px;
       margin: auto;
+    }
+    .header-section {
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 5px;
+    }
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 8px 16px;
+      background-color: #161b22;
+      color: #e6edf3;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.light-theme .theme-toggle {
+      background-color: #f0f0f0;
+      color: #1a1a1a;
+      border-color: #d0d0d0;
+    }
+    .theme-toggle:hover {
+      background-color: #21262d;
+    }
+    body.light-theme .theme-toggle:hover {
+      background-color: #e0e0e0;
     }
     .card {
       background: #161b22;
       padding: 20px;
       margin-top: 20px;
       border-radius: 10px;
+      transition: background-color 0.3s;
+    }
+    body.light-theme .card {
+      background: #f6f8fa;
+      border: 1px solid #d0d8de;
     }
   </style>
 </head>
 <body>
+  <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
   <div class="container">
-    <h1>Sanyam Sharma</h1>
-    <p>ML · Software · Systems</p>
+    <div class="header-section">
+      <h1>Sanyam Sharma</h1>
+      <p>ML · Software · Systems</p>
+    </div>
 
     <div class="card">
       <h2>Links</h2>
@@ -41,8 +87,35 @@
       <!-- <p><a href="YOUR_LEETCODE_LINK" target="_blank" rel="noopener noreferrer">LeetCode</a></p> -->
     </div>
 
-
-
   </div>
+
+  <script>
+    // Check for saved theme preference or default to dark theme
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      if (savedTheme === 'light') {
+        document.body.classList.add('light-theme');
+        updateButtonText();
+      }
+    }
+
+    function toggleTheme() {
+      const button = document.querySelector('.theme-toggle');
+      document.body.classList.toggle('light-theme');
+      
+      const isLightTheme = document.body.classList.contains('light-theme');
+      localStorage.setItem('theme', isLightTheme ? 'light' : 'dark');
+      updateButtonText();
+    }
+
+    function updateButtonText() {
+      const button = document.querySelector('.theme-toggle');
+      const isLightTheme = document.body.classList.contains('light-theme');
+      button.textContent = isLightTheme ? '☀️ Light' : '🌙 Dark';
+    }
+
+    // Initialize theme on page load
+    initTheme();
+  </script>
 </body>
 </html>
