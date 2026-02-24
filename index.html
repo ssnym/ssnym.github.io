@@ -36,25 +36,70 @@
       position: absolute;
       top: 20px;
       right: 20px;
-      padding: 8px 16px;
-      background-color: #161b22;
-      color: #e6edf3;
-      border: 1px solid #30363d;
-      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toggle-checkbox {
+      display: none;
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 50px;
+      height: 28px;
+      background-color: #30363d;
+      border-radius: 34px;
       cursor: pointer;
+      transition: background-color 0.3s;
+      border: none;
+      padding: 0;
+    }
+
+    .toggle-switch::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: #e6edf3;
+      top: 2px;
+      left: 2px;
+      transition: transform 0.3s;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .toggle-checkbox:checked + .toggle-switch {
+      background-color: #1f6feb;
+    }
+
+    .toggle-checkbox:checked + .toggle-switch::after {
+      transform: translateX(22px);
+    }
+
+    .toggle-label {
       font-size: 14px;
-      transition: background-color 0.3s, color 0.3s;
+      font-weight: 500;
+      user-select: none;
+      color: #e6edf3;
+      min-width: 30px;
     }
-    body.light-theme .theme-toggle {
-      background-color: #f0f0f0;
+
+    body.light-theme .toggle-switch {
+      background-color: #d0d8de;
+    }
+
+    body.light-theme .toggle-switch::after {
+      background-color: #1a1a1a;
+    }
+
+    body.light-theme .toggle-checkbox:checked + .toggle-switch {
+      background-color: #0969da;
+    }
+
+    body.light-theme .toggle-label {
       color: #1a1a1a;
-      border-color: #d0d0d0;
-    }
-    .theme-toggle:hover {
-      background-color: #21262d;
-    }
-    body.light-theme .theme-toggle:hover {
-      background-color: #e0e0e0;
     }
     .card {
       background: #161b22;
@@ -70,7 +115,12 @@
   </style>
 </head>
 <body>
-  <button class="theme-toggle" onclick="toggleTheme()">Dark</button>
+  <div class="theme-toggle">
+    <span class="toggle-label">🌙</span>
+    <input type="checkbox" id="theme-checkbox" class="toggle-checkbox" onchange="toggleTheme()">
+    <label for="theme-checkbox" class="toggle-switch"></label>
+    <span class="toggle-label">☀️</span>
+  </div>
   <div class="container">
     <div class="header-section">
       <h1>Sanyam Sharma</h1>
@@ -93,25 +143,21 @@
     // Check for saved theme preference or default to dark theme
     function initTheme() {
       const savedTheme = localStorage.getItem('theme') || 'dark';
+      const checkbox = document.getElementById('theme-checkbox');
       if (savedTheme === 'light') {
         document.body.classList.add('light-theme');
-        updateButtonText();
+        checkbox.checked = true;
+      } else {
+        checkbox.checked = false;
       }
     }
 
     function toggleTheme() {
-      const button = document.querySelector('.theme-toggle');
+      const checkbox = document.getElementById('theme-checkbox');
       document.body.classList.toggle('light-theme');
       
       const isLightTheme = document.body.classList.contains('light-theme');
       localStorage.setItem('theme', isLightTheme ? 'light' : 'dark');
-      updateButtonText();
-    }
-
-    function updateButtonText() {
-      const button = document.querySelector('.theme-toggle');
-      const isLightTheme = document.body.classList.contains('light-theme');
-      button.textContent = isLightTheme ? 'Light' : 'Dark';
     }
 
     // Initialize theme on page load
