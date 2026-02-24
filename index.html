@@ -70,7 +70,7 @@
   </style>
 </head>
 <body>
-  <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
+  <button class="theme-toggle" onclick="toggleTheme()">Dark</button>
   <div class="container">
     <div class="header-section">
       <h1>Sanyam Sharma</h1>
@@ -111,7 +111,7 @@
     function updateButtonText() {
       const button = document.querySelector('.theme-toggle');
       const isLightTheme = document.body.classList.contains('light-theme');
-      button.textContent = isLightTheme ? '☀️ Light' : '🌙 Dark';
+      button.textContent = isLightTheme ? 'Light' : 'Dark';
     }
 
     // Initialize theme on page load
