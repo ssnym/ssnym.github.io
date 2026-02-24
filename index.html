@@ -5,6 +5,30 @@
     <title>ssnym</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        /* Header bar layout */
+        .header-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 15px 20px;
+        }
+
+        /* Theme toggle right alignment */
+        .theme-toggle {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Title styling */
+        .header-title {
+            font-size: 28px;
+            font-weight: 600;
+            text-align: center;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 40px;
@@ -127,7 +151,7 @@
 </head>
 
 <body>
-    <div class="theme-toggle">
+    <!-- <div class="theme-toggle">
         <input type="checkbox" id="theme-checkbox" class="toggle-checkbox" onchange="toggleTheme()">
         <label for="theme-checkbox" class="toggle-switch"></label>
     </div>
@@ -135,7 +159,23 @@
         <div class="header-section">
             <h1>Sanyam Sharma</h1>
             <p>ML · Software · Systems</p>
+        </div> -->
+
+    <div class="header-bar">
+        <div class="header-title">
+            Sanyam Sharma
+            <p style="font-size:14px; margin:4px 0 0 0; opacity:0.8;">
+                ML · Software · Systems
+            </p>
         </div>
+
+        <div class="theme-toggle">
+            <input type="checkbox" id="theme-checkbox" class="toggle-checkbox" onchange="toggleTheme()">
+            <label for="theme-checkbox" class="toggle-switch"></label>
+        </div>
+    </div>
+
+    <div class="container">
 
         <div class="card">
             <h2>Contacts</h2>
