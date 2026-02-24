@@ -1,277 +1,83 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>ssnym</title>
+    <meta charset="UTF-8">
+    <title>Sanyam Sharma</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        /* Header bar layout */
-        .header-bar {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            padding: 0px 0px 10px  10px;
-        }
-
-        /* Theme toggle right alignment */
-        .theme-toggle {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        /* Title styling */
-        .header-title {
-            font-size: 28px;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            margin: 10px 40px 0px 40px;
-            background-color: #0d1117;
-            color: #e6edf3;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        body.light-theme {
-            background-color: #ffffff;
-            color: #1a1a1a;
-        }
-
-        a {
-            color: #58a6ff;
-            text-decoration: none;
-        }
-
-        body.light-theme a {
-            color: #0969da;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: auto;
-            text-align: center;
-        }
-
-        .header-section {
-            text-align: center;
-        }
-
-        h1 {
-            margin-bottom: 5px;
-        }
-
-        h3{
-            margin-top: 0;
-        }
-
-        .theme-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .toggle-checkbox {
-            display: none;
-        }
-
-        .toggle-switch {
-            position: relative;
-            width: 50px;
-            height: 28px;
-            background-color: #30363d;
-            border-radius: 34px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            border: none;
-            padding: 0;
-        }
-
-        .toggle-switch::after {
-            content: '';
-            position: absolute;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            top: 2px;
-            left: 2px;
-            transition: transform 0.3s, background-image 0.3s;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-
-            /* Default = moon icon (dark theme) */
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 60%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' stroke='%23ffffff' fill='none' stroke-width='2' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z'/%3E%3C/svg%3E");
-        }
-
-        /* When toggle is ON → Sun sketch */
-        .toggle-checkbox:checked+.toggle-switch::after {
-            transform: translateX(22px);
-
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' stroke='%23ffffff' fill='none' stroke-width='2' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='5'/%3E%3Cline x1='12' y1='1' x2='12' y2='4'/%3E%3Cline x1='12' y1='20' x2='12' y2='23'/%3E%3Cline x1='4.22' y1='4.22' x2='6.34' y2='6.34'/%3E%3Cline x1='17.66' y1='17.66' x2='19.78' y2='19.78'/%3E%3Cline x1='1' y1='12' x2='4' y2='12'/%3E%3Cline x1='20' y1='12' x2='23' y2='12'/%3E%3C/svg%3E");
-        }
-
-        .toggle-label {
-            font-size: 14px;
-            font-weight: 500;
-            user-select: none;
-            color: #e6edf3;
-            min-width: 30px;
-        }
-
-        body.light-theme .toggle-switch {
-            background-color: #d0d8de;
-        }
-
-
-        body.light-theme .toggle-checkbox:checked+.toggle-switch {
-            background-color: #0969da;
-        }
-
-        body.light-theme .toggle-label {
-            color: #1a1a1a;
-        }
-
-        .card {
-            background: #161b22;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 10px;
-            transition: background-color 0.3s;
-        }
-
-        body.light-theme .card {
-            background: #f6f8fa;
-            border: 1px solid #d0d8de;
-        }
-
-        /* Responsive design for small screens */
-        @media (max-width: 768px) {
-            body {
-                margin: 10px 20px 0px 20px;
-            }
-
-            .header-bar {
-                flex-direction: column-reverse;
-                padding: 10px 0px 10px 0px;
-                gap: 10px;
-            }
-
-            .header-title {
-                font-size: 24px;
-                order: 2;
-            }
-
-            .theme-toggle {
-                position: static;
-                transform: none;
-                top: auto;
-                right: auto;
-                margin-bottom: 10px;
-                justify-self: center;
-            }
-
-            .toggle-label {
-                display: none;
-            }
-
-            h3 {
-                margin-top: 0;
-                margin-bottom: 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                margin: 10px 15px 0px 15px;
-            }
-
-            .header-title {
-                font-size: 20px;
-            }
-
-            p {
-                font-size: 14px;
-            }
-
-            .card {
-                padding: 15px;
-                margin-top: 15px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:wght@300;400&display=swap" rel="stylesheet">
 </head>
+<body class="dark">
 
-<body>
+    <div class="wrapper">
 
-    <div class="header-bar">
-        <div class="header-title">
-            Sanyam Sharma
-        </div>
+        <header class="site-header">
+            <div class="header-left">
+                <span class="name">Sanyam Sharma</span>
+                <span class="tagline">ML &middot; Software &middot; Systems</span>
+            </div>
 
-        <div class="theme-toggle">
-            <input type="checkbox" id="theme-checkbox" class="toggle-checkbox" onchange="toggleTheme()">
-            <label for="theme-checkbox" class="toggle-switch"></label>
-        </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <!-- Moon — shown in dark mode -->
+                <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+                <!-- Sun — shown in light mode -->
+                <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1"  x2="12" y2="4"/>
+                    <line x1="12" y1="20" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22"   x2="6.34" y2="6.34"/>
+                    <line x1="17.66" y1="17.66"  x2="19.78" y2="19.78"/>
+                    <line x1="1"  y1="12" x2="4"  y2="12"/>
+                    <line x1="20" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22"  y1="19.78" x2="6.34"  y2="17.66"/>
+                    <line x1="17.66" y1="6.34"  x2="19.78" y2="4.22"/>
+                </svg>
+            </button>
+        </header>
+
+        <main>
+            <section class="hero">
+                <h1 class="hero-title">
+                    Building at the intersection<br>
+                    of <em>intelligence</em> &amp; systems.
+                </h1>
+                <p class="hero-sub">
+                    I work on machine learning, software engineering, and the systems that tie them together.
+                    Interested in things that scale, reason, and surprise.
+                </p>
+            </section>
+
+        </main>
+
+        
+
+        <footer class="site-footer">
+            <nav class="links-row">
+                <a href="https://github.com/ssnym" target="_blank" rel="noopener noreferrer" class="link-item">
+                    GitHub 
+                </a>
+                <a href="https://www.linkedin.com/in/sanyam-sharma-cse/" target="_blank" rel="noopener noreferrer" class="link-item">
+                    LinkedIn 
+                </a>
+                <a href="https://www.kaggle.com/ssnymcode" target="_blank" rel="noopener noreferrer" class="link-item">
+                    Kaggle 
+                </a>
+                <a href="https://drive.google.com/file/d/1w8ROZ_kl38t73WiCg3Z-JLfNjRYO9Smm/preview" target="_blank" rel="noopener noreferrer" class="link-item">
+                    Résumé 
+                </a>
+            </nav>
+        </footer>
+
+        
+
     </div>
 
-    <p style="font-size:18px; margin:5px 0 6px 0; opacity:0.8; text-align: center;">
-        ML • Software • Systems
-    </p>
-
-    <div class="container">
-
-        <div class="card">
-            <h3>Contacts</h3>
-            <a href="https://github.com/ssnym" target="_blank" rel="noopener noreferrer">GitHub</a>
-            &nbsp;|&nbsp;
-            <a href="https://www.linkedin.com/in/sanyam-sharma-cse/" target="_blank"
-                    rel="noopener noreferrer">LinkedIn</a>
-            &nbsp;|&nbsp;
-            <a href="https://www.kaggle.com/ssnymcode" target="_blank" rel="noopener noreferrer">Kaggle</a>
-            &nbsp;|&nbsp;
-            <a href="https://drive.google.com/file/d/1w8ROZ_kl38t73WiCg3Z-JLfNjRYO9Smm/preview" target="_blank"
-                    rel="noopener noreferrer">Resume</a>
-            <!-- &nbsp;|&nbsp;
-            <a href="YOUR_HF_LINK" target="_blank" rel="noopener noreferrer">Hugging Face</a>
-            &nbsp;|&nbsp;
-            <a href="YOUR_LEETCODE_LINK" target="_blank" rel="noopener noreferrer">LeetCode</a> -->
-        </div>
-
-    </div>
-
-    <script>
-        // Check for saved theme preference or default to dark theme
-        function initTheme() {
-            const savedTheme = localStorage.getItem('theme') || 'dark';
-            const checkbox = document.getElementById('theme-checkbox');
-            if (savedTheme === 'light') {
-                document.body.classList.add('light-theme');
-                checkbox.checked = true;
-            } else {
-                checkbox.checked = false;
-            }
-        }
-
-        function toggleTheme() {
-            const checkbox = document.getElementById('theme-checkbox');
-            document.body.classList.toggle('light-theme');
-
-            const isLightTheme = document.body.classList.contains('light-theme');
-            localStorage.setItem('theme', isLightTheme ? 'light' : 'dark');
-        }
-
-        // Initialize theme on page load
-        initTheme();
-    </script>
+    <script src="script.js"></script>
 </body>
-
 </html>
