@@ -100,6 +100,12 @@ body {
     flex-shrink: 0;
     transition: border-color var(--transition), background var(--transition);
     margin-left: auto;
+
+    /* icons use currentColor for their strokes, so make sure the
+       button inherits the appropriate text colour for the current
+       theme. this keeps the moon visible in dark mode and the sun
+       contrasting in light mode. */
+    color: var(--text);
 }
 
 .theme-toggle:hover {
