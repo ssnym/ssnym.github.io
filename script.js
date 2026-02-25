@@ -3,8 +3,8 @@ const body   = document.body;
 const toggle = document.getElementById('themeToggle');
 
 function applyTheme(theme) {
-    body.classList.toggle('light', theme === 'light');
     body.classList.toggle('dark',  theme === 'dark');
+    body.classList.toggle('light', theme === 'light');
 }
 
 function initTheme() {
