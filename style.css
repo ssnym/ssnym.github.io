@@ -86,38 +86,112 @@ body {
     font-weight: 300;
 }
 
-/* ─── Theme Toggle ────────────────────────────────────────── */
-.theme-toggle {
-    background: none;
-    border: 1px solid var(--border);
-    border-radius: 8px;
+/* ─── Theme Toggle Wrapper ────────────────────────────────── */
+/* expanded to cover button + all fanned-out option positions  */
+.theme-toggle-wrapper {
+    position: relative;
+    margin-left: auto;
+    /* wide enough for left+button+right, tall enough for top option */
+    width:  calc(42px * 3 + 8px * 2);   /* 142px */
+    height: calc(36px * 2 + 8px);       /* 80px  */
+    /* keep the button visually at bottom-center of this zone */
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+/* ─── Shared base for toggle + options ───────────────────── */
+.theme-toggle,
+.theme-option {
+    position: absolute;
     width: 42px;
     height: 36px;
+    border-radius: 8px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    transition: border-color var(--transition), background var(--transition);
-    margin-left: auto;
-
-    /* icons use currentColor for their strokes, so make sure the
-       button inherits the appropriate text colour for the current
-       theme. this keeps the moon visible in dark mode and the sun
-       contrasting in light mode. */
     color: var(--text);
+    background: none;
+    border: 1px solid var(--border);
+    transition:
+        transform    var(--transition),
+        opacity      var(--transition),
+        border-color var(--transition),
+        background   var(--transition),
+        color        var(--transition);
 }
 
-.theme-toggle:hover {
+/* ─── Main toggle button — always visible, pinned bottom-center ── */
+.theme-toggle {
+    z-index: 10;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    /* override transition so transform stays static */
+    transition:
+        border-color var(--transition),
+        background   var(--transition),
+        color        var(--transition);
+}
+
+.theme-toggle-wrapper:hover .theme-toggle {
     border-color: var(--accent);
     background: color-mix(in srgb, var(--accent) 8%, transparent);
 }
 
-.icon-moon { display: block; }
-.icon-sun  { display: none;  }
+/* all three icons hidden by default; JS controls which is shown */
+.icon-moon, .icon-sun, .icon-system { display: none; }
 
-body.light .icon-moon { display: none;  }
-body.light .icon-sun  { display: block; }
+/* ─── Theme Menu — covers the whole wrapper hover zone ───── */
+.theme-menu {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.theme-menu.visible {
+    pointer-events: all;
+}
+
+/* ─── Option buttons — all start collapsed on the button ─── */
+.theme-option {
+    z-index: 9;
+    color: var(--text-muted);
+    bottom: 0;
+    left: 50%;
+    opacity: 0;
+    transform: translateX(-50%) scale(0.8);
+}
+
+/* ── Fan out: sun left, moon right, system top ───────────── */
+.theme-menu.visible .theme-option[data-theme="light"] {
+    opacity: 1;
+    transform: translateX(calc(-50% - 42px - 8px)) scale(1);
+}
+
+.theme-menu.visible .theme-option[data-theme="dark"] {
+    opacity: 1;
+    transform: translateX(calc(-50% + 42px + 8px)) scale(1);
+}
+
+.theme-menu.visible .theme-option[data-theme="system"] {
+    opacity: 1;
+    transform: translateX(-50%) translateY(calc(-36px - 8px)) scale(1);
+}
+
+/* hover / active states */
+.theme-option:hover {
+    color: var(--text);
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+    border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+.theme-option.active {
+    color: var(--accent-2);
+    background: color-mix(in srgb, var(--accent) 14%, transparent);
+    border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+}
 
 /* ─── Hero ───────────────────────────────────────────────── */
 .hero {
