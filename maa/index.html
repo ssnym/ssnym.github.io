@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maa ♥</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    min-height: 100vh;
+    background: #fdf0f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 40%, #fce4ec 0%, #fdf0f4 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .petal {
+    position: fixed;
+    border-radius: 60% 0 60% 0;
+    opacity: 0;
+    animation: fall linear infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+  @keyframes fall {
+    0%   { transform: translateY(-30px) rotate(0deg);   opacity: 0.75; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+
+  .wrap {
+    text-align: center;
+    padding: 2rem 2rem 0.5rem;
+    z-index: 1;
+    animation: fadeUp 1.4s ease both 0.2s;
+  }
+  .title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-weight: 400;
+    color: #c2687e;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.3rem;
+  }
+  .maa {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.6rem, 9vw, 5.5rem);
+    font-style: italic;
+    font-weight: 500;
+    color: #e07090;
+  }
+  .heart {
+    display: inline-block;
+    animation: beat 1.5s ease infinite;
+    color: #e8819a;
+  }
+  @keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50%       { transform: scale(1.3); }
+  }
+
+  .slideshow {
+    position: relative;
+    width: min(460px, 88vw);
+    aspect-ratio: 4/3;
+    margin: 1.6rem auto 1.2rem;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid #f5c2ce;
+    box-shadow: 0 8px 32px rgba(220, 130, 155, 0.18);
+    z-index: 1;
+    animation: fadeUp 1.4s ease both 0.6s;
+  }
+  .slideshow img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+  }
+  .slideshow img.active { opacity: 1; }
+
+  .dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    z-index: 1;
+    animation: fadeUp 1.4s ease both 0.9s;
+  }
+  .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #f5c2ce;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+  }
+  .dot.active {
+    background: #e07090;
+    transform: scale(1.3);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<script>
+  const photos = [
+    "photos/photo1.jpg",
+    "photos/photo2.jpg",
+    "photos/photo3.jpg",
+    // "photos/photo4.jpg",
+  ];
+</script>
+
+<div class="wrap">
+  <p class="title">Happy Mother's Day</p>
+  <p class="maa">Maa &nbsp;<span class="heart">♥</span></p>
+</div>
+
+<div class="slideshow" id="ss"></div>
+<div class="dots" id="dots"></div>
+
+<script>
+  const ss = document.getElementById('ss');
+  const dotsEl = document.getElementById('dots');
+  let current = 0;
+
+  photos.forEach((src, i) => {
+    const img = document.createElement('img');
+    img.src = src;
+    if (i === 0) img.classList.add('active');
+    ss.appendChild(img);
+
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => goTo(i);
+    dotsEl.appendChild(d);
+  });
+
+  function goTo(n) {
+    ss.querySelectorAll('img')[current].classList.remove('active');
+    dotsEl.querySelectorAll('.dot')[current].classList.remove('active');
+    current = n;
+    ss.querySelectorAll('img')[current].classList.add('active');
+    dotsEl.querySelectorAll('.dot')[current].classList.add('active');
+  }
+
+  setInterval(() => goTo((current + 1) % photos.length), 4000);
+
+  const petalColors = ['#fce4ec', '#f8bbd0', '#f48fb1', '#fadadd', '#fff0f3', '#fcd5de'];
+  for (let i = 0; i < 26; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    const sz = 6 + Math.random() * 10;
+    p.style.left = Math.random() * 100 + '%';
+    p.style.width = sz + 'px';
+    p.style.height = sz + 'px';
+    p.style.background = petalColors[Math.floor(Math.random() * petalColors.length)];
+    p.style.animationDuration = (5 + Math.random() * 9) + 's';
+    p.style.animationDelay = (Math.random() * 9) + 's';
+    document.body.appendChild(p);
+  }
+</script>
+</body>
+</html>
