@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-     <title>Sanyam Sharma</title>
+     <title>Projects · Sanyam Sharma</title>
      <link rel="icon" href="data:image/svg+xml,
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
   <rect width='100' height='100' rx='20' fill='%23f5f5f5'/>
@@ -12,9 +12,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:wght@300;400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body class="dark">
 
@@ -27,8 +25,8 @@
             </div>
 
             <nav class="site-nav">
-                <a href="index.html" class="nav-item active">Home</a>
-                <a href="projects.html" class="nav-item">Projects</a>
+                <a href="index.html" class="nav-item">Home</a>
+                <a href="projects.html" class="nav-item active">Projects</a>
                 <a href="blog.html" class="nav-item">Blog</a>
             </nav>
 
@@ -53,15 +51,53 @@
         </header>
 
         <main>
-            <section class="hero">
-                <h1 class="hero-title">
-                    Building at the intersection<br>
-                    of <em>intelligence</em> &amp; systems.
-                </h1>
-                <p class="hero-sub">
-                    I work on machine learning, software engineering, and the systems that tie them together.
-                    Interested in things that scale, reason, and surprise.
-                </p>
+            <section class="page-intro">
+                <h1 class="page-title">Projects</h1>
+            </section>
+
+            <section class="project-list">
+
+                <article class="project-entry">
+                    <div class="project-date">July 2026</div>
+                    <a href="https://github.com/ssnym/transformer-serve" target="_blank" rel="noopener noreferrer" class="project-name">
+                        Transformer Serve
+                    </a>
+                    <p class="project-desc">
+                        Configurable inference API for Hugging Face Causal and Seq2Seq text-generation models.
+                        <span class="project-links">
+                            <a href="https://ssnym-transformer-serve.hf.space" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                            <a href="https://hub.docker.com/r/ssnym/transformer-serve" target="_blank" rel="noopener noreferrer">Docker Image</a>
+                        </span>
+                    </p>
+                </article>
+
+                <article class="project-entry">
+                    <div class="project-date">April 2026</div>
+                    <a href="https://github.com/ssnym/rnn-qa" target="_blank" rel="noopener noreferrer" class="project-name">
+                        RNN QA
+                    </a>
+                    <p class="project-desc">
+                        RNN model based Question Answering API built using Pytorch, FastAPI and Docker.
+                        <span class="project-links">
+                            <a href="https://hub.docker.com/r/ssnym/rnn-qa" target="_blank" rel="noopener noreferrer">Docker Image</a>
+                        </span>
+                    </p>
+                </article>
+
+                <article class="project-entry">
+                    <div class="project-date">July 2025</div>
+                    <a href="https://github.com/ssnym/SpoofedSpeechGUI" target="_blank" rel="noopener noreferrer" class="project-name">
+                        SpoofedSpeechGUI
+                    </a>
+                    <p class="project-desc">
+                        PyQt6 GUI desktop application for Spoofed Speech detection using AASIST and RawNet model
+                        <!-- Omit the <span class="project-links"> block entirely if there are no extra links -->
+                    </p>
+                </article>
+               
+
+                <!-- Add more <article class="project-entry"> blocks here, newest first -->
+
             </section>
         </main>
 
