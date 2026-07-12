@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-     <title>Blog · Sanyam Sharma</title>
+     <title>Projects · Sanyam Sharma</title>
      <link rel="icon" href="data:image/svg+xml,
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
   <rect width='100' height='100' rx='20' fill='%23f5f5f5'/>
   <text x='50' y='65' font-size='70' text-anchor='middle' fill='%23111111' font-family='Noto Sans Devanagari, serif'>स</text>
 </svg>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500&display=swap" rel="stylesheet">
@@ -25,9 +25,9 @@
             </div>
 
             <nav class="site-nav">
-                <a href="index.html" class="nav-item">Home</a>
-                <a href="projects.html" class="nav-item">Projects</a>
-                <a href="blog.html" class="nav-item active">Blog</a>
+                <a href="/" class="nav-item">Home</a>
+                <a href="/projects/" class="nav-item active">Projects</a>
+                <a href="/blog/" class="nav-item">Blog</a>
             </nav>
 
             <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -52,39 +52,51 @@
 
         <main>
             <section class="page-intro">
-                <h1 class="page-title">Blog</h1>
+                <h1 class="page-title">Projects</h1>
             </section>
 
-            <section class="blog-list">
+            <section class="project-list">
 
-                <!-- Example entry — duplicate this block for each post -->
-
-                <article class="blog-entry">
-                    <div class="blog-head">
-                        <a href="https://ssnym.medium.com/i-built-gpt-2-from-scratch-in-pytorch-a2bee3ba2fca" target="_blank" rel="noopener noreferrer" class="blog-title">
-                            GPT-2 from scratch
-                        </a>
-                        <div class="blog-date">May 2026</div>
-                    </div>
-                    <p class="blog-desc">
-                        GPT-2 from scratch using PyTorch in single file : architecture, training loop, checkpointing, inference.
+                <article class="project-entry">
+                    <div class="project-date">July 2026</div>
+                    <a href="https://github.com/ssnym/transformer-serve" target="_blank" rel="noopener noreferrer" class="project-name">
+                        Transformer Serve
+                    </a>
+                    <p class="project-desc">
+                        Configurable inference API for Hugging Face Causal and Seq2Seq text-generation models.
+                        <span class="project-links">
+                            <a href="https://ssnym-transformer-serve.hf.space" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                            <a href="https://hub.docker.com/r/ssnym/transformer-serve" target="_blank" rel="noopener noreferrer">Docker Image</a>
+                        </span>
                     </p>
                 </article>
 
-
-                <article class="blog-entry">
-                    <div class="blog-head">
-                        <a href="https://ssnym.medium.com/emails-types-of-emails-5daf85fb27f5" target="_blank" rel="noopener noreferrer" class="blog-title">
-                            Emails - Types of Emails
-                        </a>
-                        <div class="blog-date">August 2025</div>
-                    </div>
-                    <p class="blog-desc">
-                        Email Working and types
+                <article class="project-entry">
+                    <div class="project-date">April 2026</div>
+                    <a href="https://github.com/ssnym/rnn-qa" target="_blank" rel="noopener noreferrer" class="project-name">
+                        RNN QA
+                    </a>
+                    <p class="project-desc">
+                        RNN model based Question Answering API built using Pytorch, FastAPI and Docker.
+                        <span class="project-links">
+                            <a href="https://hub.docker.com/r/ssnym/rnn-qa" target="_blank" rel="noopener noreferrer">Docker Image</a>
+                        </span>
                     </p>
                 </article>
 
-                <!-- Add more <article class="blog-entry"> blocks here, newest first -->
+                <article class="project-entry">
+                    <div class="project-date">July 2025</div>
+                    <a href="https://github.com/ssnym/SpoofedSpeechGUI" target="_blank" rel="noopener noreferrer" class="project-name">
+                        SpoofedSpeechGUI
+                    </a>
+                    <p class="project-desc">
+                        PyQt6 GUI desktop application for Spoofed Speech detection using AASIST and RawNet model
+                        <!-- Omit the <span class="project-links"> block entirely if there are no extra links -->
+                    </p>
+                </article>
+               
+
+                <!-- Add more <article class="project-entry"> blocks here, newest first -->
 
             </section>
         </main>
@@ -93,12 +105,12 @@
             <nav class="links-row">
                 <a href="https://github.com/ssnym" target="_blank" rel="noopener noreferrer" class="link-item">GitHub</a>
                 <a href="https://www.linkedin.com/in/sanyam-sharma-cse/" target="_blank" rel="noopener noreferrer" class="link-item">LinkedIn</a>
-                <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="link-item">Résumé</a>
+                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="link-item">Résumé</a>
                 </nav>
         </footer>
 
     </div>
 
-    <script src="script.js"></script>
+    <script src="/script.js"></script>
 </body>
 </html>
