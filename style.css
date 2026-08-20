@@ -161,6 +161,15 @@ body.light .icon-sun  { display: none; }
     font-weight: 300;
 }
 
+.hero-status {
+    font-size: 1.1rem;
+    color: var(--text);
+    opacity: 1;
+    font-weight: 300;
+    margin-top: 16px;
+    letter-spacing: 0.02em;
+}
+
 /* ─── Footer — pinned to bottom ──────────────────────────── */
 .site-footer {
     margin-top: auto;
@@ -310,12 +319,21 @@ body.light .icon-sun  { display: none; }
     max-width: 600px;
 }
 
-.page-title {
+/* .page-title {
     font-family: var(--font-display);
     font-size: clamp(1.8rem, 4vw, 2.3rem);
     font-weight: 500;
     letter-spacing: -0.01em;
     margin-bottom: 12px;
+    color: var(--text);
+} */
+
+.page-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-weight: 200;
+    letter-spacing: -0.01em;
+    margin-bottom: 2px;
     color: var(--text);
 }
 
@@ -340,7 +358,7 @@ body.light .icon-sun  { display: none; }
     display: flex;
     flex-direction: column;
     gap: 0;
-    margin-bottom: 56px;
+    margin-bottom: 30px;
 }
 
 .project-entry {
