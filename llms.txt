@@ -1,0 +1,42 @@
+# Sanyam Sharma
+
+> ML / Software / Systems. Building at the intersection of intelligence & systems.
+
+Personal portfolio and project index for Sanyam Sharma — machine learning engineer, infrastructure engineer, AI engineer, and inference engineer.
+Currently a Research Intern at IIT Hyderabad. B.Tech CSE (AI & ML), 2022–2026.
+
+## Pages
+
+- [Home](https://ssnym.github.io/): About
+- [Projects](https://ssnym.github.io/projects/): ML/software projects 
+- [Research](https://ssnym.github.io/research/): Publications
+- [Blog](https://ssnym.github.io/blog/): Technical Blogs
+
+## Career
+
+- Research Intern, IIT Hyderabad (Jan 2026 – Present) 
+- Summer Intern, IIT Mandi (Jun–Jul 2025) 
+- Research Intern, IIT Mandi (Jun–Jul 2024)
+
+## Notable work
+
+- [Llama-3.2-1B Text-to-SQL](https://huggingface.co/ssnym/llama-3.2-1b-text-to-sql)
+- [transformer-serve](https://github.com/ssnym/transformer-serve)
+- [rnn-qa](https://github.com/ssnym/rnn-qa)
+- [lm-lab](https://github.com/ssnym/lm-lab)
+- [SpoofedSpeechGUI](https://github.com/ssnym/SpoofedSpeechGUI)
+
+## Publications
+
+- [HybridStack-MLP](https://ieeexplore.ieee.org/abstract/document/11407094)
+
+
+## Technical Skills
+
+Python, C++, SQL, PyTorch, Unsloth, PEFT, TRL, FastAPI, Scikit-learn, NumPy, Pandas, Flask, Docker, llama.cpp, Weights & Biases, Git, GitHub, Linux, Postman, Ollama, Ansible, Terraform, GNS3, Batfish
+
+## Contact
+
+- GitHub: https://github.com/ssnym
+- LinkedIn: https://www.linkedin.com/in/sanyam-sharma-cse/
+- Résumé: https://ssnym.github.io/resume.pdf
