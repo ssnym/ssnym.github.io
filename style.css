@@ -276,7 +276,10 @@ body.light .icon-sun  { display: none; }
     margin-top: auto;
     padding-bottom: 40px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
 /* ─── Links — horizontal row ─────────────────────────────── */
@@ -312,6 +315,13 @@ body.light .icon-sun  { display: none; }
 
 .link-item:hover {
     color: var(--link-hover);
+}
+
+.copyright {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    letter-spacing: 0.01em;
 }
 
 .link-arrow {
