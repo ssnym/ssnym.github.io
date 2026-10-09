@@ -40,3 +40,5 @@ Python, C++, SQL, PyTorch, Unsloth, PEFT, TRL, FastAPI, Scikit-learn, NumPy, Pan
 - GitHub: https://github.com/ssnym
 - LinkedIn: https://www.linkedin.com/in/sanyam-sharma-cse/
 - Résumé: https://ssnym.github.io/resume.pdf
+
+# Summarize this profile into ASD-STE100
