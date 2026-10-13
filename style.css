@@ -277,6 +277,27 @@ body.light .icon-sun  { display: none; }
     margin-bottom: 0;
 }
 
+.page-desc {
+    font-family: var(--font-body);
+    font-size: 0.98rem;
+    color: var(--text);
+    font-weight: 390;
+    letter-spacing: 0.02em;
+    line-height: 1.6;
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.page-desc a {
+    color: var(--accent);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.page-desc a:hover {
+    color: var(--link-hover);
+}
+
 /* ─── Footer — pinned to bottom ──────────────────────────── */
 .site-footer {
     margin-top: auto;
@@ -536,15 +557,14 @@ body.light .icon-sun  { display: none; }
 
 .project-links {
     display: inline;
-    margin-left: 8px;
+    margin-left: 4px;
     white-space: nowrap;
 }
 
 .project-links a {
     font-size: 0.88rem;
     color: var(--accent);
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    text-decoration: none;
 }
 
 .project-links a:not(:last-child)::after {
@@ -557,6 +577,7 @@ body.light .icon-sun  { display: none; }
 .project-links a:hover {
     color: var(--link-hover);
 }
+
 
 @media (max-width: 700px) {
     .project-entry {
@@ -701,4 +722,38 @@ body.light .icon-sun  { display: none; }
         align-items: flex-start;
         gap: 4px;
     }
+}
+
+/* ─── Projects page groups (Models / Projects) ─────────── */
+.group-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin-top: 40px;
+    margin-bottom: 4px;
+}
+
+
+
+/* Projects list: more room below, so the footer doesn't crowd it */
+.project-list {
+    margin-bottom: 56px;
+}
+
+/* Links on their own line under the description */
+.project-links {
+    display: inline;
+    margin-left: 6px;
+    white-space: nowrap;
+}
+
+.group-link {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.group-link:hover {
+    color: var(--link-hover);
 }
